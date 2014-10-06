@@ -1,0 +1,22 @@
+{
+  "name": "biwascheme-psyntax",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "biwas test.scm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asolove/biwascheme-psyntax.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asolove/biwascheme-psyntax/issues"
+  },
+  "homepage": "https://github.com/asolove/biwascheme-psyntax",
+  "dependencies": {
+    "biwascheme": "^0.6.2"
+  }
+}
