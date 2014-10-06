@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "biwas test.scm"
+    "test": "biwas ./psyntax-r6rs/psyntax.pp"
   },
   "repository": {
     "type": "git",
