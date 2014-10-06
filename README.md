@@ -12,3 +12,7 @@ An adventure.
   - `biwas ./psyntax-r6rs/psyntax.pp` fails from malformed identifiers. e.g. 
   (define #{make-parameter |AKXjRGEA>%V699g&|} '#f)
     - Create ./psyntax-r6rs/pre-built/psyntax-biwa.pp with petite definitions, start fixing what's missing.
+      - Define void and eval-core just to get to the point of running the file.
+  - `biwas ./psyntax-r6rs/pre-built/psyntax-biwa.pp psyntax-r6rs/examples/hello-world.ss` to test actual expansion working.
+    - Change command line interface because running inside biwa inside node.
+    - Now missing with-input-from-file when trying to load the hello-world program.

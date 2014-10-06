@@ -1,3 +1,9 @@
+;;; This bit written by asolove for biwa
+
+(define (void) #f)
+
+(define (eval-core x) (eval x))
+
 ;;; Copyright (c) 2006, 2007 Abdulaziz Ghuloum and Kent Dybvig
 ;;; automatically generated from psyntax sources
 ;;; for copyright details, see psyntax/main.ss
@@ -29862,15 +29868,15 @@
          (display '"r6rs psyntax ready\n")
          ((lambda (args$733$23371)
             (begin
-              (if (= (length args$733$23371) '2)
+              (if (= (length args$733$23371) '4)
                   (void)
                   (begin
+                    (display args$733$23371)
                     (display '"provide a script name argument\n")
                     (exit '17)))
-              ((lambda (script-name$733$23374 args$733$23373)
-                 (load-r6rs-top-level$733$23361 (car args$733$23373)))
-                (car args$733$23371)
-                (cdr args$733$23371))))
+              ((lambda (file)
+                 (load-r6rs-top-level$733$23361 file))
+                (cadddr args$733$23371))))
            (command-line))
          (exit '0))))
     '#f))
