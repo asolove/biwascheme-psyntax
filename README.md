@@ -11,4 +11,4 @@ An adventure.
   - `make` psyntax-r6rs succeeds in first target: Happy Happy Joy Joy. 
   - `biwas ./psyntax-r6rs/psyntax.pp` fails from malformed identifiers. e.g. 
   (define #{make-parameter |AKXjRGEA>%V699g&|} '#f)
-    
+    - Create ./psyntax-r6rs/pre-built/psyntax-biwa.pp with petite definitions, start fixing what's missing.

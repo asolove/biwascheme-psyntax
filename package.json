@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "biwas ./psyntax-r6rs/psyntax.pp"
+    "test": "biwas ./psyntax-r6rs/pre-built/psyntax-biwa.pp psyntax-r6rs/examples/hello-world.ss"
   },
   "repository": {
     "type": "git",
