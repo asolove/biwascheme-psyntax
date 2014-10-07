@@ -4,6 +4,18 @@
 
 (define (eval-core x) (eval x))
 
+(define (error location message arguments)
+  (display "Error: \n")
+  (display location)
+  (display "\n")
+  (display message)
+  (display "\n")
+  (display arguments)
+  (display "\n\n")
+
+  ; Is there a biwa way to exit the program from scheme?
+  (system-error))
+
 ;;; Copyright (c) 2006, 2007 Abdulaziz Ghuloum and Kent Dybvig
 ;;; automatically generated from psyntax sources
 ;;; for copyright details, see psyntax/main.ss
@@ -29843,42 +29855,22 @@
     '() values values '#f))
 
 
-(begin
-  (define load-r6rs-top-level$733$23377 '#f)
-  ((lambda (load-r6rs-top-level$733$23361)
-     (begin
-       (set! load-r6rs-top-level$733$23361
-         (lambda (filename$733$23363)
-           ((lambda (x*$733$23365)
-              (eval-r6rs-top-level$733$23171 x*$733$23365))
-             (with-input-from-file
-               filename$733$23363
-               (lambda ()
-                 (letrec ((f$733$23367
-                           (lambda ()
-                             ((lambda (x$733$23369)
-                                (if (eof-object? x$733$23369)
-                                    '()
-                                    (cons x$733$23369 (f$733$23367))))
-                               (read)))))
-                   (f$733$23367)))))))
-       (begin
-         (set! load-r6rs-top-level$733$23377
-           load-r6rs-top-level$733$23361)
-         (display '"r6rs psyntax ready\n")
-         ((lambda (args$733$23371)
-            (begin
-              (if (= (length args$733$23371) '4)
-                  (void)
-                  (begin
-                    (display args$733$23371)
-                    (display '"provide a script name argument\n")
-                    (exit '17)))
-              ((lambda (file)
-                 (load-r6rs-top-level$733$23361 file))
-                (cadddr args$733$23371))))
-           (command-line))
-         (exit '0))))
-    '#f))
+(eval-r6rs-top-level$733$23171
+  `((import (my-library))
+    (define (square x) (* x x))))
 
+(quote 
+(eval-r6rs-top-level$733$23171
+  '(begin
+    (define-syntax my-or
+      (lambda (x)
+        (syntax-case x ()
+          [(_) #'#f]
+          [(_ e) #'e]
+          [(_ e1 e2 e3 ...)
+           #'(let ([t e1])
+               (if t t (or e2 e3 ...)))])))
 
+    (my-or #t (display 1) (display 2))))
+
+)

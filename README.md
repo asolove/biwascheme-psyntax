@@ -16,3 +16,9 @@ An adventure.
   - `biwas ./psyntax-r6rs/pre-built/psyntax-biwa.pp psyntax-r6rs/examples/hello-world.ss` to test actual expansion working.
     - Change command line interface because running inside biwa inside node.
     - Now missing with-input-from-file when trying to load the hello-world program.
+      - Rewrote psyntax's main to just execute inline code instead of loading from a file.
+  - `biwas ./psyntax-r6rs/pre-built/psyntax-biwa.pp` with inline code.
+    - Executes but missing (error).
+      - Biwa doesn't seem to have an error system so just print out the debug info and blow up.
+    - Executes further but missing dynamic-wind.
+      - Ugh.
