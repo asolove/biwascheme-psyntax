@@ -4,6 +4,17 @@
 
 (define (eval-core x) (eval x))
 
+: hack
+(define (dynamic-wind before thunk after)
+  (before)
+  (let ((ret (thunk)))
+    (after)
+    ret))
+
+(define (open-string-output-port)
+  (let ((p (open-output-string)))
+    (values p (lambda () (get-output-string p)))))
+
 (define (error location message arguments)
   (display "Error: \n")
   (display location)
