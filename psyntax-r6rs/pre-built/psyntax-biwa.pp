@@ -4,7 +4,7 @@
 
 (define (eval-core x) (eval x))
 
-: hack
+; hack hack 
 (define (dynamic-wind before thunk after)
   (before)
   (let ((ret (thunk)))
@@ -14,6 +14,10 @@
 (define (open-string-output-port)
   (let ((p (open-output-string)))
     (values p (lambda () (get-output-string p)))))
+
+; hack hack
+(define (exact? n)
+  (integer? n))
 
 (define (error location message arguments)
   (display "Error: \n")
@@ -29867,8 +29871,8 @@
 
 
 (eval-r6rs-top-level$733$23171
-  `((import (my-library))
-    (define (square x) (* x x))))
+  `((import (rnrs))
+    (define a 12)))
 
 (quote 
 (eval-r6rs-top-level$733$23171
